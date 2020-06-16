@@ -14,7 +14,7 @@ namespace EntregaSolidariaAPIs.Model
         public int IdMercado { get; set; }
 
         [Column("PROD_PRECO")]
-        public decimal Preco { get; set; }
+        public double Preco { get; set; }
 
         [Column("PROD_DESCRICAO")]
         public string Descricao { get; set; }

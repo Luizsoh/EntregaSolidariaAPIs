@@ -36,21 +36,22 @@ namespace EntregaSolidariaAPIs.Controllers
                 {
                     if (!await VerificaUsuarioExistente(cadastroUsuario.CPF, cadastroUsuario.Email))
                     {
-                        var usuario = new UsuarioViewModel();
-
-                        usuario.CPF = cadastroUsuario.CPF;
-                        usuario.Email = cadastroUsuario.Email;
-                        usuario.Endereco = cadastroUsuario.Endereco;
-                        usuario.Nome = cadastroUsuario.Nome;
-                        usuario.Senha = cadastroUsuario.Senha;
-                        usuario.Telefone = cadastroUsuario.Telefone;
-                        usuario.TipoUsuario = cadastroUsuario.TipoUsuario;
-                        usuario.NumeroEndereco = cadastroUsuario.NumeroEndereco;
+                        var usuario = new UsuarioViewModel()
+                        {
+                            CPF = cadastroUsuario.CPF,
+                            Email = cadastroUsuario.Email,
+                            Endereco = cadastroUsuario.Endereco,
+                            Nome = cadastroUsuario.Nome,
+                            Senha = cadastroUsuario.Senha,
+                            Telefone = cadastroUsuario.Telefone,
+                            TipoUsuario = cadastroUsuario.TipoUsuario,
+                            NumeroEndereco = cadastroUsuario.NumeroEndereco
+                        };
 
                         await Contexto.UsuarioViewModel.AddAsync(usuario);
                         await Contexto.SaveChangesAsync();
 
-                        return Json(new { mensagem = "Sucesso", resultado = true });
+                        return Json(new { usuario, resultado = true });
                     }
                     else
                     {

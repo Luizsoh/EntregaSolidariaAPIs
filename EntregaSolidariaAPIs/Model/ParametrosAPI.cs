@@ -34,7 +34,7 @@ namespace EntregaSolidariaAPIs.Model.ParametrosAPI
     {
         public int IdProduto { get; set; }
         public int IdMercado { get; set; }
-        public decimal Preco { get; set; }
+        public double Preco { get; set; }
         public string Descricao { get; set; }
         public int Estoque { get; set; }
     }
